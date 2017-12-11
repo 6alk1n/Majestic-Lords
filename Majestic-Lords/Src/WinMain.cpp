@@ -1,6 +1,4 @@
-#include <Windows.h>
-#include <Engine/Log.hpp>
-
+#include <Engine/Core.hpp>
 
 int CALLBACK WinMain(
 	HINSTANCE   hInstance,
@@ -9,7 +7,11 @@ int CALLBACK WinMain(
 	int         nCmdShow
 )
 {
-	Majestic::Log log;
-	
-	return 0;
+	if (Majestic::InitEngine() !=1 )
+	return -1;
+
+	if (Majestic::KillEngine() != 1)
+		return -1;
+
+	return 1;
 }

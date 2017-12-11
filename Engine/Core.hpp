@@ -4,5 +4,15 @@
 #if defined _WIN64 || defined _WIN32
 	#include <Windows.h>
 #endif
+//include logging header
+#include "Log.hpp"
+namespace Majestic {
+	static Log* _engine_log;
+	static const char* _engine_version = "1a";
 
-#define _NAMESPACE Majestic
+	static const char* _engine_log_path = "majesticlog.txt";
+
+	int InitEngine();
+
+	int KillEngine();
+}

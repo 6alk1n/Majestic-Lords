@@ -1,0 +1,3 @@
+---Majestic-Lords Engine Log---
+Engine Version: 1a
+[20:38:36][1 level] - Init Engine - Success

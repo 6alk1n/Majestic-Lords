@@ -2,18 +2,25 @@
 
 #pragma once
 
-#include "Core.hpp"
-
-#include <sstream>
+//include for file streams
+#include <fstream>
+#include <ctime>
 
 namespace Majestic {
 
 	class Log
 	{
 	public:
-		Log();
+		Log(std::ofstream*); //stream
+		Log(std::string); //file path
 		~Log();
+		virtual int Write(std::string);
+		virtual int Write(int, std::string);
+		virtual int WriteLine(std::string);
+		virtual int WriteLine(int, std::string);
+
 	protected:
-		std::ofstream* ofstream;
+		int WriteToLog(std::string);
+		std::ofstream* logstream;
 	};
 }
