@@ -1,0 +1,6 @@
+---Majestic-Lords---
+->Libraries for VS2017
+->x86 - 32-bit Windows
+->x64(target) - 64-bit Windows
+->Libraries:
+1) SDL2,SDL2main,SDL2test

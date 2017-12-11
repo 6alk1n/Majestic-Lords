@@ -1,0 +1,6 @@
+---Majestic-Lords---
+->DLL for project and engine
+->x86 - 32-bit Windows
+->x64(target) - 64-bit Windows
+->DLL:
+1) SDL2.dll
