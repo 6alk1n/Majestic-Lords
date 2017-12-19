@@ -13,30 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Заголовочные файлы\Core">
+      <UniqueIdentifier>{1b07b4ad-cd61-47b1-b39a-3830b54912ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Core">
+      <UniqueIdentifier>{6a92f962-34d0-4fa9-ba22-2768d13933f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\System">
+      <UniqueIdentifier>{d10e26f4-acfa-457f-aea4-ba25342eda76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\System">
+      <UniqueIdentifier>{ea7a0bc1-ba11-49e1-b5ba-4477e8e7be06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.hpp">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Core</Filter>
     </ClInclude>
     <ClInclude Include="Log.hpp">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Core</Filter>
     </ClInclude>
     <ClInclude Include="Property.hpp">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="System.hpp">
+      <Filter>Заголовочные файлы\Core</Filter>
     </ClInclude>
     <ClInclude Include="Types.hpp">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.hpp">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.hpp">
+      <Filter>Заголовочные файлы\System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Log.cpp">
-      <Filter>Файлы исходного кода</Filter>
+    <ClCompile Include="Property.cpp">
+      <Filter>Файлы исходного кода\Core</Filter>
     </ClCompile>
     <ClCompile Include="Core.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Property.cpp">
-      <Filter>Файлы исходного кода</Filter>
+    <ClCompile Include="Log.cpp">
+      <Filter>Файлы исходного кода\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Файлы исходного кода\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
