@@ -5,14 +5,11 @@
 	#include <Windows.h>
 #endif
 //include logging header
-#include "Log.hpp"
+//#include "Log.hpp"
 namespace Majestic {
-	static Log* _engine_log;
+
 	static const char* _engine_version = "1a";
-
 	static const char* _engine_log_path = "majesticlog.txt";
-
 	int InitEngine();
-
 	int KillEngine();
 }

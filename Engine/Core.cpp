@@ -2,12 +2,14 @@
 
 namespace Majestic {
 
-	int InitEngine()
+
+	static int InitEngine()
 	{
 		//create log file
-		std::ofstream* _engine_log_stream = new std::ofstream;
+		
+	/*	std::ofstream* _engine_log_stream = new std::ofstream;
 		_engine_log_stream->open(_engine_log_path, std::ofstream::out);
-		_engine_log = new Majestic::Log(_engine_log_stream);
+		_engine_log = new Log(_engine_log_stream);
 
 		//write start log file lines
 		_engine_log->WriteLine("---Majestic-Lords Engine Log---");
@@ -27,12 +29,13 @@ namespace Majestic {
 		{
 			_engine_log->Write("Failed");
 			return -1;
-		}
+		}*/
 	}
-
-	int KillEngine()
+	
+	static int KillEngine()
 	{
-		delete _engine_log;
+	//	delete _engine_log;
 		return 1;
 	}
+
 }

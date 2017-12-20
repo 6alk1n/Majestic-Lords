@@ -16,10 +16,27 @@
     <Filter Include="Файлы исходного кода\SystemMain">
       <UniqueIdentifier>{77837c32-a891-4f7e-b144-86fc9e796fa3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\SystemMain">
+      <UniqueIdentifier>{6cc560aa-6331-4505-98c9-fc6dab82ef86}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\WinMain.cpp">
       <Filter>Файлы исходного кода\SystemMain</Filter>
     </ClCompile>
+    <ClCompile Include="GameApp.cpp">
+      <Filter>Файлы исходного кода\SystemMain</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Файлы исходного кода\SystemMain</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameScreen.hpp">
+      <Filter>Заголовочные файлы\SystemMain</Filter>
+    </ClInclude>
+    <ClInclude Include="GameApp.hpp">
+      <Filter>Заголовочные файлы\SystemMain</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

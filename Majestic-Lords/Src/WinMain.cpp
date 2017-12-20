@@ -1,5 +1,6 @@
 #include <Engine/Core.hpp>
-
+#include "GameApp.hpp"
+#include "GameScreen.hpp"
 int CALLBACK WinMain(
 	HINSTANCE   hInstance,
 	HINSTANCE   hPrevInstance,
@@ -7,11 +8,20 @@ int CALLBACK WinMain(
 	int         nCmdShow
 )
 {
-	if (Majestic::InitEngine() !=1 )
-	return -1;
 
-	if (Majestic::KillEngine() != 1)
-		return -1;
+	GameApp App;
+	App.Init();
+	GameScreen* gamescreen = new GameScreen();
+	gamescreen->SetName("MajesticGame");
+	GameScreen* gamescreen2 =new GameScreen();
+	gamescreen2->SetName("MajesticGame SUPER");
+	
+	App.PushScreen(gamescreen);
+	App.PushScreen(gamescreen2);
+	App.Run();
+
+	App.Shutdown();
+
 
 	return 1;
 }

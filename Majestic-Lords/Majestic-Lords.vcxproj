@@ -70,19 +70,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Majestic-Lords;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Majestic-Lords;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Majestic-Lords;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\lib\x64;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\include;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Majestic-Lords;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\Dependencies\lib\x64;C:\Users\Vadim\Documents\Visual Studio 2017\Projects\Majestic-Lords\x64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -138,7 +138,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameApp.cpp" />
+    <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Src\WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameApp.hpp" />
+    <ClInclude Include="GameScreen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,5 +22,6 @@ namespace Majestic
 	protected:
 		System* _parentSystem;
 		int _screenState;
+		friend class Application;
 	};
 }

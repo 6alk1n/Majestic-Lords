@@ -62,7 +62,7 @@ namespace Majestic
 			char buffer[9];
 			std::strftime(buffer, 32, "%H:%M:%S", ptm);
 
-			return WriteToLog("[" +std::string(buffer) +  std::string("][") + std::to_string(level) + "level]" + msg + "\n");
+			return WriteToLog("[" +std::string(buffer) +  std::string("][") + std::to_string(level) + " level]" + msg + "\n");
 		}
 		else
 		{
