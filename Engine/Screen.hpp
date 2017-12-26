@@ -20,7 +20,6 @@ namespace Majestic
 		virtual int Update();
 		virtual int SetParentSystem(System*);
 	protected:
-		System* _parentSystem;
 		int _screenState;
 		friend class Application;
 	};

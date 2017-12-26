@@ -129,19 +129,25 @@
     <ClInclude Include="Application.hpp" />
     <ClInclude Include="Core.hpp" />
     <ClInclude Include="EventDefines.hpp" />
+    <ClInclude Include="Input.hpp" />
     <ClInclude Include="Log.hpp" />
     <ClInclude Include="Property.hpp" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="System.hpp" />
+    <ClInclude Include="Timing.hpp" />
     <ClInclude Include="Types.hpp" />
+    <ClInclude Include="Window.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="System.cpp" />
+    <ClCompile Include="Timing.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

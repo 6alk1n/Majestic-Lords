@@ -1,8 +1,11 @@
 ---Majestic-Lords Engine Log---
 Engine Version: 1a
-[21:45:08][1 level]Init Engine - Success
-[21:45:08][2 level]Application Systems Inited Successfully
-[21:45:08][3 level]Pushing Screen : MajesticGame
-[21:45:08][3 level]Pushing Screen : MajesticGame SUPER
-[21:45:08][3 level]Popping Screen : MajesticGame SUPER
-[21:45:08][3 level]Popping Screen : MajesticGame
+[11:31:57][1 level]Init Engine - Success
+[11:31:57][3 level]Adding System : Window System
+[11:31:57][3 level]Adding System : Input System
+[11:31:57][3 level]Pushing Screen : MajesticGame
+[11:31:57][3 level]Starting Window Init
+[11:31:57][2 level]Window System Init - Success
+[11:31:57][2 level]Input System Init - Success
+[11:31:57][2 level]Application Systems Inited Successfully
+[11:31:59][3 level]Popping Screen : MajesticGame

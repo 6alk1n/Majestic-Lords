@@ -24,15 +24,15 @@ namespace Majestic {
 	struct PropertyClass
 	{
 	public:
-		std::map<std::string, Property&> property;
-
-		int Add(Property);
-		int Add(std::string, double);
-		int Add(std::string, std::string);
+		std::map<std::string, Property*> property;
+		int Set(Property*);
+		int Set(std::string, double);
+		int Set(std::string, std::string);
 		int Clear();
-		Property& Get(std::string);
+		Property* Get(std::string);
 		std::string GetString(std::string);
 		double GetDouble(std::string);
+		bool status;
 	};
 
 }

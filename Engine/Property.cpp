@@ -5,6 +5,7 @@ namespace Majestic {
 	{
 		this->name = "";
 		this->value = "";
+	
 	}
 	Property::Property(const std::string val)
 	{
@@ -32,49 +33,84 @@ namespace Majestic {
 		if (this->value == other.value) if (this->name == other.name) return 2; else return 1;
 		return 0;
 	}
-	int PropertyClass::Add(Property prop)
+	int PropertyClass::Set(Property* prop)
 	{
-		if (prop.name == "") return 0;
-		property.insert(std::pair<std::string, Property&>(prop.name, prop));
+		if (prop->name == "")
+		{
+			status = false;
+			return 0;
+		}
+		property.insert(std::pair<std::string, Property*>(prop->name, prop));
+
+		status = true;
 		return 1;
 	}
-	int PropertyClass::Add(std::string name, double val)
+	int PropertyClass::Set(std::string name, double val)
 	{
-		if (name == "") return 0;
-		property.insert(std::pair<std::string, Property&>(name, Property(val)));
+		if (name == "")
+		{
+			status = false;
+			return 0;
+		}
+		property.insert(std::pair<std::string, Property*>(name, new Property(val)));
+
+		status = true;
 		return 1;
 	}
-	int PropertyClass::Add(std::string name, std::string val)
+	int PropertyClass::Set(std::string name, std::string val)
 	{
-		if (name == "") return 0;
-		property.insert(std::pair<std::string, Property&>(name, Property(val)));
+		if (name == "")
+		{
+
+			status = false;
+			return 0;
+		}
+		property.insert(std::pair<std::string, Property*>(name,new  Property(val)));
+
+		status = true;
 		return 1;
 	}
 	int PropertyClass::Clear()
 	{
 		property.clear();
+
+		status = true;
 		return 1;
 	}
-	Property& PropertyClass::Get(std::string name)
+	Property* PropertyClass::Get(std::string name)
 	{
 		auto it = property.find(name);
-		if (it != property.end())
+		if (it != property.end()) {
+
+			status = true;
 			return it->second;
-		return Property();
+		}
+
+		status = false;
+		return nullptr;
 	}
 	std::string PropertyClass::GetString(std::string name)
 	{
 		auto it = property.find(name);
 		if (it != property.end())
-			return it->second.value;
+		{
+			status = true;
+			return it->second->value;
+		}
+		status = false;
 		return std::string();
 	}
 	double PropertyClass::GetDouble(std::string name)
 	{
 
 		auto it = property.find(name);
-		if (it != property.end())
-			return it->second.ToDouble();
+		if (it != property.end()) {
+
+			status = true;
+			return it->second->ToDouble();
+		}
+
+		status = false;
 		return 0.0;
 	}
 }

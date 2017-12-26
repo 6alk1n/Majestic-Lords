@@ -1,5 +1,6 @@
 #include "GameApp.hpp" 
 #include <Engine/EventDefines.hpp>
+#include <Engine/Core.hpp>
 GameApp::GameApp()
 	:Application()
 {
@@ -51,6 +52,39 @@ int GameApp::Run()
 
 	while (!_done)
 	{
+		SDL_Event e;
+		while (SDL_PollEvent(&e) != 0)
+		{
+			//User requests quit
+			if (e.type == SDL_QUIT)
+			{
+				_done = true;
+			}
+			//User presses a key
+			else if (e.type == SDL_KEYDOWN)
+			{
+				_input->Press(e.key.keysym.sym);
+			}
+			else if (e.type == SDL_KEYUP)
+			{
+				_input->Release(e.key.keysym.sym);
+			}
+			else if (e.type == SDL_MOUSEMOTION)
+			{
+				_input->SetMousePos(e.button.x, e.button.y);
+			}
+			else if (e.type == SDL_MOUSEBUTTONDOWN)
+			{
+				_input->Press(e.button.button + 255);
+
+			}
+			else if (e.type == SDL_MOUSEBUTTONUP)
+			{
+
+				_input->Release(e.button.button + 255);
+			}
+		}
+
 		//Handle events
 		int handleresult = HandleEvents();
 		if (handleresult == 0)
@@ -60,9 +94,12 @@ int GameApp::Run()
 		}
 
 		//Handle last screen
-		int updatestate = _activeScreen->Update();
-		int drawstate = _activeScreen->Draw();
-		_done = true; //test
+		if (_activeScreen)
+		{
+			int updatestate = _activeScreen->Update();
+			int drawstate = _activeScreen->Draw();
+		}
+		else _done = true; //end
 	}
 	return 1;
 }

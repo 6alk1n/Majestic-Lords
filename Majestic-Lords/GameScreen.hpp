@@ -1,5 +1,6 @@
 #pragma once
 #include <Engine/Screen.hpp>
+#include <Engine/Application.hpp>
 using namespace Majestic;
 class GameScreen :public Screen
 {
@@ -12,5 +13,6 @@ public:
 	virtual int Draw();
 	virtual int Update();
 protected:
-
+	Window* _window;
+	Input* _input;
 };

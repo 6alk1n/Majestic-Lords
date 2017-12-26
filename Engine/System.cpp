@@ -5,6 +5,7 @@ namespace Majestic
 	System::System()
 	{
 		_name = "";
+		_parentSystem = nullptr;
 	}
 	System::~System()
 	{

@@ -43,9 +43,11 @@ namespace Majestic {
 		virtual int PushEvent(Event);
 		std::string GetName();
 		void SetName(std::string);
-	protected:
 		PropertyClass _property;
+	protected:
 		std::string _name;
 		std::list<Event> _events;
+		System* _parentSystem;
+		friend class Application;
 	};
 }

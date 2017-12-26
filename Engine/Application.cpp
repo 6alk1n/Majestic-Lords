@@ -27,6 +27,13 @@ namespace Majestic
 		{
 			_engine_log->WriteLine("Failed");
 		}
+		//Adding systems to app
+		Window* newWindow = new Window();
+		AddSystem(newWindow);
+		_window = newWindow;
+		Input* newInput = new Input();
+		AddSystem(newInput);
+		_input = newInput;
 	}
 	Application::~Application()
 	{
@@ -38,8 +45,9 @@ namespace Majestic
 		int goodinit = 1;
 		for (auto i = _appSystems.begin(); i != _appSystems.end(); i++)
 		{
-			_engine_log->Write(2, (*i)->GetName() + "Init - ");
 			int initresult = (*i)->Init();
+			HandleEvents();
+			_engine_log->Write(2, (*i)->GetName() + " Init - ");
 			if (initresult==1)
 			{
 				_engine_log->WriteLine("Success");
@@ -66,6 +74,10 @@ namespace Majestic
 			{
 				_engine_log->WriteLine(3, i->_eventinfo);
 			}
+			if (i->_event == _EventDefine_PopScreen)
+			{
+				PopScreen();
+			}
 		}
 		_events.clear();
 		return 1;
@@ -77,6 +89,8 @@ namespace Majestic
 			_events.push_back(Event(_EventDefine_Log, "Pushing Screen : " + scr->GetName()));
 			_screenStack.push_back(scr);
 			scr->_parentSystem = this;
+			if (_screenStack.size()) _activeScreen = _screenStack.back();
+			else _activeScreen = nullptr;
 			return 1;
 		}
 		_events.push_back(Event(_EventDefine_Log, "Pushing Screen Error : Empty"));
@@ -89,6 +103,8 @@ namespace Majestic
 		{
 			_events.push_back(Event(_EventDefine_Log, "Popping Screen : " + _screenStack.back()->GetName()));
 			_screenStack.pop_back();
+			if (_screenStack.size()) _activeScreen = _screenStack.back();
+			else _activeScreen = nullptr;
 			return 1;
 		}
 		_events.push_back(Event(_EventDefine_Log, "Popping Screen Error : Empty"));
@@ -100,7 +116,7 @@ namespace Majestic
 		{
 			_events.push_back(Event(_EventDefine_Log, "Adding System : " + sys->GetName()));
 			_appSystems.push_back(sys);
-			
+			sys->_parentSystem = this;
 			return 1;
 		}	
 		_events.push_back(Event(_EventDefine_Log, "Adding System Error : Empty"));
@@ -115,5 +131,13 @@ namespace Majestic
 		}
 		HandleEvents();
 		return 1;
+	}	
+	Window* Application::GetWindow()
+	{
+		return _window;
+	}
+	Input* Application::GetInput()
+	{
+		return _input;
 	}
 }

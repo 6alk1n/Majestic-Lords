@@ -51,6 +51,15 @@
     <ClInclude Include="EventDefines.hpp">
       <Filter>Заголовочные файлы\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Window.hpp">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Timing.hpp">
+      <Filter>Заголовочные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.hpp">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Property.cpp">
@@ -69,6 +78,15 @@
       <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Timing.cpp">
+      <Filter>Файлы исходного кода\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
       <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
   </ItemGroup>
