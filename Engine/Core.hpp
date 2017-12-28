@@ -4,7 +4,11 @@
 #if defined _WIN64 || defined _WIN32
 	#include <Windows.h>
 #endif
-#include <SDL\SDL.h>
+
+#include <GL/glew.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+
 //include logging header
 //#include "Log.hpp"
 namespace Majestic {

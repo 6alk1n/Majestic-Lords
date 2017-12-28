@@ -60,6 +60,9 @@
     <ClInclude Include="Input.hpp">
       <Filter>Заголовочные файлы\System</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics.hpp">
+      <Filter>Заголовочные файлы\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Property.cpp">
@@ -87,6 +90,9 @@
       <Filter>Файлы исходного кода\Core</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
+      <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
       <Filter>Файлы исходного кода\System</Filter>
     </ClCompile>
   </ItemGroup>

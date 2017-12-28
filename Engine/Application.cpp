@@ -34,6 +34,14 @@ namespace Majestic
 		Input* newInput = new Input();
 		AddSystem(newInput);
 		_input = newInput;
+		glutinput = _input;
+		Graphics* newGraphics = new Graphics();
+		AddSystem(newGraphics);
+		_graphics = newGraphics;
+
+		//Set input for window
+		_window->_input = _input;
+
 	}
 	Application::~Application()
 	{
@@ -41,12 +49,23 @@ namespace Majestic
 	}
 	int Application::Run()
 	{
+		return Run(GetModuleHandle(NULL), "", 0);
+	}
+
+	int Application::Run(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow)
+	{
 		//Init all systems and log them
 		int goodinit = 1;
 		for (auto i = _appSystems.begin(); i != _appSystems.end(); i++)
 		{
+			//Set window graphics
+			if (*i == _graphics)
+			{
+				_graphics->SetHWND(_window->GetHWND());
+			}
 			int initresult = (*i)->Init();
 			HandleEvents();
+
 			_engine_log->Write(2, (*i)->GetName() + " Init - ");
 			if (initresult==1)
 			{
@@ -64,6 +83,12 @@ namespace Majestic
 			_engine_log->WriteLine(2, "Application System Init Failed ");
 			return 0;
 		}
+
+		//Show Window
+		ShowWindow(_window->GetHWND() ,
+			nCmdShow);
+		UpdateWindow(_window->GetHWND());
+
 		return 1;
 	}
 	int Application::HandleEvents()
@@ -140,4 +165,14 @@ namespace Majestic
 	{
 		return _input;
 	}
+}
+
+void Majestic::keyboardfunc(unsigned char key, int x, int y)
+{
+	glutinput->Press(key);
+}
+
+void Majestic::keyboardfuncUp(unsigned char key, int x, int y)
+{
+	glutinput->Release(key);
 }

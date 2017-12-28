@@ -1,8 +1,11 @@
 #pragma once
 #include "System.hpp"
-#include <SDL\SDL.h>
+#include "Core.hpp"
+#include "Input.hpp"
+LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 namespace Majestic
 {
+
 	static const int WindowDefaultWidth = 1024;
 	static const std::string WindowDefaultTitle = "MajesticTitle";
 	static const int WindowDefaultHeight = 768;
@@ -18,10 +21,13 @@ namespace Majestic
 		int RenameWindow(std::string name);
 		int SetScreenPos(unsigned int x,unsigned int y);
 		int SetVsync(bool);
-
-
-		SDL_Window* _window;
-		SDL_Surface* _surface;
+		const HINSTANCE GetInstance();
+		const HWND GetHWND();
 	protected:
+		virtual int InitWindow();
+		HINSTANCE _hInstance;
+		Input* _input; //shared with application input
+		friend class Application;
+		HWND _hwnd;
 	};
 }

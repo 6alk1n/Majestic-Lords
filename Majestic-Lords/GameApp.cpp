@@ -29,7 +29,20 @@ int GameApp::Reload()
 }
 int GameApp::Run()
 {
-	int appupperrun = Application::Run();
+	return Run(GetModuleHandle(NULL), "", 0);
+}
+int GameApp::Run(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow)
+{	
+	///TEMPORARY CODE 
+	//Initialize FreeGLUT
+	int argc = 0;
+	char* args[] = { "" };
+
+	//Create OpenGL 2.1 context
+
+	///END TEMPORARY
+
+	int appupperrun = Application::Run(hInstance,lpCmdLine,nCmdShow);
 	if (appupperrun == 0)  return 0;
 
 	if(_screenStack.size())
@@ -49,57 +62,32 @@ int GameApp::Run()
 		PushEvent(Event(_EventDefine_EventHandlerError, "Failed to Init starting Screen"));
 		return 3;
 	}
-
-	while (!_done)
+	
+	//MAIN LOOP
+	MSG msg;
+	while (GetMessage(&msg, NULL, 0, 0))
 	{
-		SDL_Event e;
-		while (SDL_PollEvent(&e) != 0)
-		{
-			//User requests quit
-			if (e.type == SDL_QUIT)
-			{
-				_done = true;
-			}
-			//User presses a key
-			else if (e.type == SDL_KEYDOWN)
-			{
-				_input->Press(e.key.keysym.sym);
-			}
-			else if (e.type == SDL_KEYUP)
-			{
-				_input->Release(e.key.keysym.sym);
-			}
-			else if (e.type == SDL_MOUSEMOTION)
-			{
-				_input->SetMousePos(e.button.x, e.button.y);
-			}
-			else if (e.type == SDL_MOUSEBUTTONDOWN)
-			{
-				_input->Press(e.button.button + 255);
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
 
-			}
-			else if (e.type == SDL_MOUSEBUTTONUP)
-			{
-
-				_input->Release(e.button.button + 255);
-			}
-		}
-
-		//Handle events
 		int handleresult = HandleEvents();
 		if (handleresult == 0)
 		{
 			PushEvent(Event(_EventDefine_EventHandlerError, "Application failed to handle events"));
 			return 0;
 		}
-
 		//Handle last screen
 		if (_activeScreen)
 		{
 			int updatestate = _activeScreen->Update();
+
 			int drawstate = _activeScreen->Draw();
+			glFlush(); //execute draw commands
 		}
-		else _done = true; //end
+		else _done = true; //No more screen
+		if (_done) break; //End Application
+		_input->Update();
 	}
+
 	return 1;
 }

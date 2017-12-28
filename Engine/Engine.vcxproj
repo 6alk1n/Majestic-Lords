@@ -129,6 +129,7 @@
     <ClInclude Include="Application.hpp" />
     <ClInclude Include="Core.hpp" />
     <ClInclude Include="EventDefines.hpp" />
+    <ClInclude Include="Graphics.hpp" />
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Log.hpp" />
     <ClInclude Include="Property.hpp" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Property.cpp" />

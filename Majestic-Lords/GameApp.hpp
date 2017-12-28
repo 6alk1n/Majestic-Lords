@@ -10,6 +10,9 @@ public:
 	virtual int Shutdown();
 	virtual int Reload();
 	virtual int Run();
+
+	virtual int Run(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow);
+
 protected:
 	bool _done;
 };

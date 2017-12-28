@@ -15,7 +15,7 @@ int CALLBACK WinMain(
 	gamescreen->SetName("MajesticGame");
 	
 	App.PushScreen(gamescreen);
-	App.Run();
+	App.Run(hInstance,lpCmdLine,nCmdShow);
 
 	App.Shutdown();
 

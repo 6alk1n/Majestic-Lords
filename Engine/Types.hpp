@@ -6,6 +6,7 @@
 #include <iomanip>
 
 #include <sstream>
+#include <vector>
 namespace Majestic
 {
 
@@ -228,13 +229,7 @@ namespace Majestic
 			this->w = w;
 			this->h = h;
 		}
-		Rectangle(SDL_Rect rect)//copy constructor
-		{
-			x = rect.x;
-			y = rect.y;
-			w = rect.w;
-			h = rect.h;
-		}
+		
 		Rectangle(Vector vector)//vector constructor
 		{
 			x = vector.x;
@@ -395,14 +390,49 @@ namespace Majestic
 		return std::string(str, 0, i);
 	}
 
-	static SDL_Color Color(unsigned char r = 255, unsigned char g = 255, unsigned char b = 255, unsigned char a = 255)
+	static std::wstring widen(const std::string& s)
 	{
-		SDL_Color col;
-		col.r = r;
-		col.g = g;
-		col.b = b;
-		col.a = a;
-		return col;
+		std::vector<wchar_t> buf(MultiByteToWideChar(CP_ACP, 0, s.c_str(), int(s.size()) + 1, 0, 0));
+		MultiByteToWideChar(CP_ACP, 0, s.c_str(), int(s.size() + 1), &buf[0], int(buf.size()));
+		return std::wstring(&buf[0]);
 	}
+
+
+	struct glColor3
+	{
+		glColor3()
+		{
+			r = g = b = 0.0f;
+		}	
+		void SetColor(unsigned int r, unsigned int g, unsigned int b)
+		{
+			this->r = (float)r/256;
+			this->g = (float)g/256;
+			this->b = (float)b/256;
+		}
+		float r;
+		float g;
+		float b;
+	};
+
+	struct glColor4
+	{
+		glColor4()
+		{
+			r = g = b = a= 0.0f;
+		}
+		
+		void SetColor(unsigned int r, unsigned int g, unsigned int b, unsigned int a)
+		{
+			this->r = (float)r/256;
+			this->g = (float)g/256;
+			this->b = (float)b / 256;
+			this->a = (float)a / 256;
+		}
+		float r;
+		float g;
+		float b;
+		float a;
+	};
 
 }

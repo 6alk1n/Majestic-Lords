@@ -10,12 +10,12 @@ namespace Majestic {
 		Timer();
 		~Timer();
 		void Start();
-		Uint64 End();
+		UINT64 End();
 		double GetTime();
 	protected:
-		Uint64 m_startTicks;
-		Uint64 m_endTicks;
+		UINT64 m_startTicks;
+		UINT64 m_endTicks;
 		double m_diff;
-		Uint64 m_freq;
+		UINT64 m_freq;
 	};
 }
