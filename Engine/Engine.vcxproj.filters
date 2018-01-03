@@ -25,6 +25,18 @@
     <Filter Include="Файлы исходного кода\System">
       <UniqueIdentifier>{ea7a0bc1-ba11-49e1-b5ba-4477e8e7be06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Engine">
+      <UniqueIdentifier>{5a69a722-b544-4819-aaab-6bbedb199da7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Engine">
+      <UniqueIdentifier>{18ac3fea-7675-4380-929c-8f898331d325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\World">
+      <UniqueIdentifier>{410b5a6c-6c58-4190-8ae6-80ba50c00a74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\World">
+      <UniqueIdentifier>{3ca0ae94-a260-473d-86a4-0d9cce132a6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.hpp">
@@ -63,6 +75,12 @@
     <ClInclude Include="Graphics.hpp">
       <Filter>Заголовочные файлы\System</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.hpp">
+      <Filter>Заголовочные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.hpp">
+      <Filter>Заголовочные файлы\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Property.cpp">
@@ -94,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>Файлы исходного кода\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Файлы исходного кода\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Файлы исходного кода\World</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

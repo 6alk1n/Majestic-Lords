@@ -86,6 +86,7 @@ namespace Majestic
 			*this = *this*rhs;
 			return *this;
 		}
+
 		double Len()//Get vector length
 		{
 			len = sqrt(x*x + y*y);
@@ -187,6 +188,14 @@ namespace Majestic
 		{
 			*this = *this*rhs;
 			return *this;
+		}
+		Vector operator/(double f)
+		{
+			Vector vec = *this;
+			if (f == 0) return vec;
+			vec.x /= f;
+			vec.y /= f;
+			return vec;
 		}
 		double Len()//Get vector length
 		{
@@ -404,6 +413,12 @@ namespace Majestic
 		{
 			r = g = b = 0.0f;
 		}	
+		glColor3(double r, double g=0, double b=0)
+		{
+			this->r = r;
+			this->g = g;
+			this->b = b;
+		}
 		void SetColor(unsigned int r, unsigned int g, unsigned int b)
 		{
 			this->r = (float)r/256;
@@ -421,7 +436,13 @@ namespace Majestic
 		{
 			r = g = b = a= 0.0f;
 		}
-		
+		glColor4(double r, double g = 0, double b = 0, double a = 0)
+		{
+			this->r = r;
+			this->g = g;
+			this->b = b;
+			this->a = a;
+		}
 		void SetColor(unsigned int r, unsigned int g, unsigned int b, unsigned int a)
 		{
 			this->r = (float)r/256;

@@ -65,29 +65,35 @@ int GameApp::Run(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow)
 	
 	//MAIN LOOP
 	MSG msg;
-	while (GetMessage(&msg, NULL, 0, 0))
+	while (!_done)
 	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-
-		int handleresult = HandleEvents();
-		if (handleresult == 0)
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+			//	while (GetMessage(&msg, NULL, 0, 0))
 		{
-			PushEvent(Event(_EventDefine_EventHandlerError, "Application failed to handle events"));
-			return 0;
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
 		}
-		//Handle last screen
-		if (_activeScreen)
-		{
-			int updatestate = _activeScreen->Update();
+			if (msg.message == WM_QUIT)
+				break;
+			int handleresult = HandleEvents();
+			if (handleresult == 0)
+			{
+				PushEvent(Event(_EventDefine_EventHandlerError, "Application failed to handle events"));
+				return 0;
+			}
+			//Handle last screen
+			if (_activeScreen)
+			{
+				int updatestate = _activeScreen->Update();
 
-			int drawstate = _activeScreen->Draw();
-			glFlush(); //execute draw commands
+				int drawstate = _activeScreen->Draw();
+				SwapBuffers(_graphics->GetHDC());
+				//glFinish(); //execute draw commands
+			}
+			else _done = true; //No more screen
+			if (_done) break; //End Application
+			_input->Update();
+		
 		}
-		else _done = true; //No more screen
-		if (_done) break; //End Application
-		_input->Update();
-	}
-
 	return 1;
 }

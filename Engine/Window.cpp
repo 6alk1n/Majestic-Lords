@@ -7,25 +7,29 @@ static Input* _WndProcInput;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	PAINTSTRUCT ps;
-	HDC hdc;
+	//PAINTSTRUCT ps;
+	//HDC hdc;
+	//printf("%d\n", message);
 	switch (message)
 	{
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
-		EndPaint(hWnd, &ps);
-		break;
+	//case WM_PAINT:
+//		hdc = BeginPaint(hWnd, &ps);
+	//	EndPaint(hWnd, &ps);
+	//	break;
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
-	case WM_CHAR:		
+	case WM_KEYDOWN:
 		if (_WndProcInput) _WndProcInput->Press(wParam);
 		break;
-	default:
-		return DefWindowProc(hWnd, message, wParam, lParam);
+	case WM_KEYUP:
+		if (_WndProcInput) _WndProcInput->Release(wParam);
 		break;
+
 	}
-	return 0;
+	return DefWindowProc(hWnd, message, wParam, lParam);
+	//return 0;
 }
 
 using namespace Majestic;

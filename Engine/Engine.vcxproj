@@ -127,11 +127,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application.hpp" />
+    <ClInclude Include="Camera.hpp" />
     <ClInclude Include="Core.hpp" />
     <ClInclude Include="EventDefines.hpp" />
     <ClInclude Include="Graphics.hpp" />
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Log.hpp" />
+    <ClInclude Include="Object.hpp" />
     <ClInclude Include="Property.hpp" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="System.hpp" />
@@ -141,10 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="System.cpp" />

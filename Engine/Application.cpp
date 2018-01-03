@@ -166,13 +166,3 @@ namespace Majestic
 		return _input;
 	}
 }
-
-void Majestic::keyboardfunc(unsigned char key, int x, int y)
-{
-	glutinput->Press(key);
-}
-
-void Majestic::keyboardfuncUp(unsigned char key, int x, int y)
-{
-	glutinput->Release(key);
-}

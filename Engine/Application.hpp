@@ -14,8 +14,6 @@
 
 namespace Majestic
 {
-	void keyboardfunc(unsigned char key, int x, int y);
-	void keyboardfuncUp(unsigned char key, int x, int y);
 	class Application :public System
 	{
 	public:

@@ -1,7 +1,8 @@
 #pragma once
 #include <Engine/Screen.hpp>
 #include <Engine/Application.hpp>
-
+#include <Engine/Camera.hpp>
+#include <Engine/Object.hpp>
 using namespace Majestic;
 class GameScreen :public Screen
 {
@@ -17,4 +18,7 @@ protected:
 	Window* _window;
 	Graphics* _graphics;
 	Input* _input;
+	Camera _camera;
+	Object obj1;
+	Object obj2;
 };

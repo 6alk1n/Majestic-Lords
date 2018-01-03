@@ -4,6 +4,10 @@ using namespace Majestic;
 GameScreen::GameScreen()
 	:Screen()
 {
+	obj1.size = Vector(50, 50);
+	obj1.color = glColor4(1.0, 1.0, 1.0, 1.0);
+	obj2.size = Vector(50, 50);
+	obj2.color = glColor4(1.0, 0.0, 1.0, 1.0);
 	//empty
 }
 GameScreen::~GameScreen()
@@ -19,6 +23,8 @@ int GameScreen::Init()
 
 	//Resize window
 	_window->ResizeScreen(1024, 768);
+	_camera.SetPos(Vector(0, 0));
+	_camera.SetScale(0.0);
 	return 1;
 }
 int GameScreen::Shutdown()
@@ -33,29 +39,38 @@ int GameScreen::Reload()
 
 int GameScreen::Draw()
 {
+	//Clear screen
 	glClear(GL_COLOR_BUFFER_BIT);
-	glBegin(GL_TRIANGLES);
-	glColor4f(1.0f, 0.0f, 0.0f,0.5f);
-	glVertex2i(0, 0);
-	glColor4f(0.0f, 1.0f, 0.0f,0.5f);
-	glVertex2i(0, 120);
-	glColor4f(0.0f, 0.0f, 1.0f,0.5f);
-	glVertex2i(120, 0);
-	glEnd();
-	glBegin(GL_TRIANGLES);
-	glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
-	glVertex2i(120, 0);
-	glColor4f(0.0f, 1.0f, 0.0f, 0.5f);
-	glVertex2i(120, 120);
-	glColor4f(0.0f, 0.0f, 1.0f, 0.5f);
-	glVertex2i(240, 0);
-	glEnd();
-	glFlush();
+
+	//Camera translation
+	glTranslatef(-_camera.GetPos().x, -_camera.GetPos().y,_camera.GetScale());
+
+	//Draw objects
+	obj1.Draw(_graphics);
+	obj2.Draw(_graphics);
+	
+	//Camera detranslation
+	glTranslatef(_camera.GetPos().x, _camera.GetPos().y, -_camera.GetScale());
+
 	return 1;
 }
 int GameScreen::Update()
 {
-	if (_input->IsPressed(27))
+	if (_input->IsPressed(27)) //exit
 		_parentSystem->PushEvent(Event(_EventDefine_PopScreen, "Quit"));
+
+	//move object
+	if (_input->IsPressed(KEY_A))
+		obj1.pos += Vector(-20, 0.0);
+	if (_input->IsPressed(KEY_D))
+		obj1.pos += Vector(20, 0.0);
+	if (_input->IsPressed(KEY_W))
+		obj1.pos += Vector(0.0, 20);
+	if (_input->IsPressed(KEY_S))
+		obj1.pos += Vector(0.0, -20);
+
+	//center camera on object
+	_camera.Center(obj1.pos);
+
 	return 1;
 }

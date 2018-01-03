@@ -17,6 +17,13 @@ namespace Majestic
 		Released
 	};
 
+	const int KEY_A = 0x41;
+	const int KEY_D = 0x44;
+	const int KEY_W = 0x57;
+	const int KEY_S = 0x53;
+	const int KEY_Z = 0x5A;
+	const int KEY_X = 0x58;
+
 	const int MOUSE_LEFT = 256;
 	const int MOUSE_RIGHT = 258;
 	const int MOUSE_MIDDLE = 267;
