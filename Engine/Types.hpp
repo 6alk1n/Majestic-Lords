@@ -413,7 +413,7 @@ namespace Majestic
 		{
 			r = g = b = 0.0f;
 		}	
-		glColor3(double r, double g=0, double b=0)
+		glColor3(float r, float g=0, float b=0)
 		{
 			this->r = r;
 			this->g = g;
@@ -436,7 +436,7 @@ namespace Majestic
 		{
 			r = g = b = a= 0.0f;
 		}
-		glColor4(double r, double g = 0, double b = 0, double a = 0)
+		glColor4(float r, float g = 0, float b = 0, float a = 0)
 		{
 			this->r = r;
 			this->g = g;

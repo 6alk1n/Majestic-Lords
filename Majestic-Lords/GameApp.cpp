@@ -86,9 +86,14 @@ int GameApp::Run(HINSTANCE hInstance, LPSTR lpCmdLine, int nCmdShow)
 			{
 				int updatestate = _activeScreen->Update();
 
-				int drawstate = _activeScreen->Draw();
-				SwapBuffers(_graphics->GetHDC());
-				//glFinish(); //execute draw commands
+				//Init matrix
+				glMatrixMode(GL_MODELVIEW);
+				glPopMatrix();
+				//Save default matrix again
+				glPushMatrix();
+				int drawstate = _activeScreen->Draw(); //Do draw
+
+				SwapBuffers(_graphics->GetHDC()); //Swap buffers
 			}
 			else _done = true; //No more screen
 			if (_done) break; //End Application

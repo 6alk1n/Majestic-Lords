@@ -104,10 +104,15 @@ int Window::ResizeScreen(unsigned int w, unsigned int h)
 	SetWindowPos(_hwnd, HWND_TOP, 0, 0, w, h,NULL);
 
 	//Resize GL
-	glViewport(0, 0,w,h);
+	glViewport(0, 0, w, h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
 	glOrtho(-_property.GetDouble("Width"), _property.GetDouble("Width"), -_property.GetDouble("Height"), _property.GetDouble("Height"), -1.0, 1.0);
 
-
+	//Initialize Modelview Matrix
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glPushMatrix();
 
 	return 0;
 }

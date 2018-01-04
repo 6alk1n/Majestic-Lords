@@ -135,8 +135,12 @@
     <ClInclude Include="Log.hpp" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Property.hpp" />
+    <ClInclude Include="ResourceManager.hpp" />
+    <ClInclude Include="TextureManager.hpp" />
+    <ClInclude Include="Utility.hpp" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="System.hpp" />
+    <ClInclude Include="Texture.hpp" />
     <ClInclude Include="Timing.hpp" />
     <ClInclude Include="Types.hpp" />
     <ClInclude Include="Window.hpp" />
@@ -150,9 +154,12 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Property.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="System.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Timing.cpp" />
+    <ClCompile Include="Utility.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

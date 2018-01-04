@@ -6,6 +6,8 @@ GameScreen::GameScreen()
 {
 	obj1.size = Vector(50, 50);
 	obj1.color = glColor4(1.0, 1.0, 1.0, 1.0);
+	obj1.uv = Majestic::Rectangle(0, 1.0, 1.0, 0);
+
 	obj2.size = Vector(50, 50);
 	obj2.color = glColor4(1.0, 0.0, 1.0, 1.0);
 	//empty
@@ -25,6 +27,10 @@ int GameScreen::Init()
 	_window->ResizeScreen(1024, 768);
 	_camera.SetPos(Vector(0, 0));
 	_camera.SetScale(0.0);
+
+	//Create test texture
+	
+	obj1.texture = _resources.textures->GetTexture("Data/player.png");
 	return 1;
 }
 int GameScreen::Shutdown()
@@ -43,14 +49,13 @@ int GameScreen::Draw()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	//Camera translation
-	glTranslatef(-_camera.GetPos().x, -_camera.GetPos().y,_camera.GetScale());
-
+	glTranslatef(-_camera.GetPos().x, -_camera.GetPos().y, _camera.GetScale());
 	//Draw objects
 	obj1.Draw(_graphics);
 	obj2.Draw(_graphics);
 	
 	//Camera detranslation
-	glTranslatef(_camera.GetPos().x, _camera.GetPos().y, -_camera.GetScale());
+	//glTranslatef(_camera.GetPos().x, _camera.GetPos().y, -_camera.GetScale());
 
 	return 1;
 }

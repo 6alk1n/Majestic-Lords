@@ -88,6 +88,13 @@ void Graphics::InitGL()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	//Enable textures
+	glEnable(GL_TEXTURE_2D);
+
+	//Init IL
+	ilInit();
+	ilClearColour(255, 255, 255, 000);
+
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 

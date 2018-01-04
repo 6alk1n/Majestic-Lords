@@ -3,6 +3,7 @@
 #include "Core.hpp"
 #include <vector>
 #include "Types.hpp"
+#include <IL/il.h>
 namespace Majestic
 {
 	class ViewPort

@@ -7,6 +7,8 @@ namespace Majestic
 		pos = Vector(0);
 		vel = Vector(0);
 		size = Vector(0);
+		texture = nullptr;
+		uv = Rectangle(0);
 	}
 	Object::~Object()
 	{
@@ -14,17 +16,32 @@ namespace Majestic
 	}
 	int Object::Draw(Graphics* graphics)
 	{
-		//Draw rect
+		//Bind texture
+		if (texture)
+			glBindTexture(GL_TEXTURE_2D, texture->_textureID);
+
 		glBegin(GL_QUADS);
-		glColor4f(color.r,color.g,color.b,color.a);
-		glVertex2i(pos.x, pos.y);
-		glColor4f(color.r, color.g, color.b, color.a);
-		glVertex2i(pos.x+size.x, pos.y);
-		glColor4f(color.r, color.g, color.b, color.a);
-		glVertex2i(pos.x+size.x, pos.y+size.y);
-		glColor4f(color.r, color.g, color.b, color.a);
-		glVertex2i(pos.x, pos.y+size.y);
+		glTexCoord2d(uv.x, uv.y);
+	//	glColor4f(color.r,color.g,color.b,color.a);
+		glVertex2i((GLint)pos.x, (GLint)pos.y);
+
+		glTexCoord2d(uv.w, uv.y);
+	//	glColor4f(color.r, color.g, color.b, color.a);
+		glVertex2i((GLint)pos.x+ (GLint)size.x, (GLint)pos.y);
+
+
+		glTexCoord2d(uv.w, uv.h);
+	//	glColor4f(color.r, color.g, color.b, color.a);
+		glVertex2i((GLint)pos.x+ (GLint)size.x, (GLint)pos.y+ (GLint)size.y);
+
+		glTexCoord2d(uv.x, uv.h);
+	//	glColor4f(color.r, color.g, color.b, color.a);
+		glVertex2i((GLint)pos.x, (GLint)pos.y+ (GLint)size.y);
 		glEnd();
+
+		//Unbind texture
+		if (texture)
+			glBindTexture(GL_TEXTURE_2D, NULL);
 		return 1;
 	}
 	int Object::Update(double step)

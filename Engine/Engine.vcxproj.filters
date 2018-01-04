@@ -37,6 +37,12 @@
     <Filter Include="Файлы исходного кода\World">
       <UniqueIdentifier>{3ca0ae94-a260-473d-86a4-0d9cce132a6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Utility">
+      <UniqueIdentifier>{9fc014d5-268c-4c7f-a2f2-486d363e14c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Utility">
+      <UniqueIdentifier>{06417d8c-4693-4289-9ee1-2aaf42d01735}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.hpp">
@@ -79,6 +85,18 @@
       <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Object.hpp">
+      <Filter>Заголовочные файлы\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.hpp">
+      <Filter>Заголовочные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.hpp">
+      <Filter>Заголовочные файлы\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.hpp">
+      <Filter>Заголовочные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.hpp">
       <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
   </ItemGroup>
@@ -118,6 +136,15 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Файлы исходного кода\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Файлы исходного кода\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Файлы исходного кода\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Файлы исходного кода\Engine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
